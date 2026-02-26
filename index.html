@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conoce el Ecosistema | Asperger para Asperger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            /* Indigo intenso */
+            --primary-light: #818CF8;
+            --secondary: #10B981;
+            /* Esmeralda */
+            --dark: #0F172A;
+            --light: #F8FAFC;
+            --gray: #64748B;
+            --card-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0E7FF 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            /* Ancho optimizado para móviles y tablets pequeñas */
+            margin: 0 auto;
+            min-height: 100vh;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png') var(--light);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Header / Hero --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #312E81 100%);
+            color: white;
+            padding: 3.5rem 1.5rem 4.5rem;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- Profile Section --- */
+        .profile-section {
+            padding: 0 1.5rem;
+            margin-top: -3rem;
+            position: relative;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .profile-img-container {
+            width: 125px;
+            height: 125px;
+            margin: 0 auto 1.2rem;
+            border-radius: 50%;
+            padding: 5px;
+            background: white;
+            box-shadow: 0 12px 30px rgba(79, 70, 229, 0.3);
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #CBD5E1;
+            /* Placeholder fallback */
+            border: 2px solid var(--primary-light);
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .profile-title {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Intro Text --- */
+        .intro-text {
+            padding: 0 2rem 2.5rem;
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* --- Ecosystem Grid --- */
+        .ecosystem {
+            padding: 1rem 1.5rem 3rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03), 0 10px 30px rgba(79, 70, 229, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .card.radio::before {
+            background: #F59E0B;
+        }
+
+        .card.club::before {
+            background: var(--secondary);
+        }
+
+        .card.blog::before {
+            background: #EC4899;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .radio .card-icon {
+            background: #0F172A;
+            color: white;
+        }
+
+        .club .card-icon {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+        }
+
+        .blog .card-icon {
+            background: rgba(236, 72, 153, 0.1);
+            color: #EC4899;
+        }
+
+        .org .card-icon {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        /* --- Contact --- */
+        .contact {
+            background: #1E293B;
+            color: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .btn svg {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Micro animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* --- Apps Section --- */
+        .apps-section {
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .app-item {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .app-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .app-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .app-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .app-btn {
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .app-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .app-btn img {
+            height: 45px;
+            display: block;
+        }
+
+        /* --- Impact Stats --- */
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 2.5rem 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Sello Badge --- */
+        .sello-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 0.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+            transition: transform 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sello-badge:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        /* --- Sticky WhatsApp --- */
+        .sticky-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .sticky-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        .sticky-whatsapp svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        /* --- Animations --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- Social Links --- */
+        .social-links {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0A66C2;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 10px rgba(10, 102, 194, 0.3);
+        }
+
+        .linkedin-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(10, 102, 194, 0.4);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <span class="hero-label">🚀 Innovación y Empatía</span>
+            <h1>Donde Convergen Tecnología, Educación y Empatía</h1>
+            <p>Soluciones innovadoras para abrazar y potenciar la diversidad cognitiva.</p>
+        </header>
+
+        <!-- Profile Section -->
+        <section class="profile-section fade-in-up">
+            <a href="https://www.linkedin.com/in/orlando-j-jaramillo-gutierrez/" target="_blank"
+                style="text-decoration: none;">
+                <div class="profile-img-container floating">
+                    <!-- Foto oficial del fundador -->
+                    <img src="https://www.aspergerparaasperger.org/wp-content/uploads/2020/01/ojjg-profile-asperger-para-asperger-org.jpg"
+                        alt="Orlando J. Jaramillo G." class="profile-img">
+                </div>
+            </a>
+            <h2 class="profile-name">Orlando J. Jaramillo G.</h2>
+            <p class="profile-title">Arquitecto de Soluciones donde converge Innovación, Educación y Tecnología<br>con
+                la Diversidad Cognitiva</p>
+            <p style="font-size: 0.85rem; color: var(--gray); margin-top: -0.5rem;">Caraqueño, hispanoamericano viviendo
+                en
+                Colombia</p>
+            <a href="https://www.linkedin.com/in/orlando-j-jaramillo-gutierrez/" target="_blank" class="linkedin-badge">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+                Conecta Conmigo
+            </a>
+        </section>
+
+        <!-- Intro Text -->
+        <div class="intro-text fade-in-up">
+            <p>Una vecina de tu urbanización —madre de uno de los jóvenes participantes de nuestro club— ha querido
+                compartir este valioso espacio contigo. Conoce <strong>Asperger para Asperger</strong>, un ecosistema
+                global creado para informar, conectar y brindar soluciones reales.</p>
+        </div>
+
+        <!-- Impact Stats -->
+        <div class="impact-stats fade-in-up">
+            <div class="stat-item">
+                <h4>+10</h4>
+                <p>Años Innovando</p>
+            </div>
+            <div class="stat-item">
+                <h4>Global</h4>
+                <p>Alcance Hispano</p>
+            </div>
+            <div class="stat-item">
+                <h4>#1</h4>
+                <p>Exp. Vivida</p>
+            </div>
+        </div>
+
+        <!-- Ecosystem Section -->
+        <section class="ecosystem">
+            <h2 class="section-title fade-in-up">Nuestro <span>Ecosistema</span></h2>
+
+            <div class="grid">
+                <!-- Card 1: Radio -->
+                <div class="card radio fade-in-up">
+                    <a href="https://www.signalradio.club/" target="_blank" class="card-icon"
+                        style="text-decoration: none;">
+                        <img src="https://www.signalradio.club/logo-4.png" alt="Signal Radio"
+                            style="max-width: 90%; max-height: 90%; object-fit: contain;">
+                    </a>
+                    <div class="card-content">
+                        <a href="https://www.signalradio.club/" target="_blank"
+                            style="text-decoration: none; color: inherit;">
+                            <h3>Signal Radio</h3>
+                            <p>La primera emisora neuro-inclusiva y neuro-amigable. De origen hispano y alcance global,
+                                promueve talentos y entornos amigables a través de la música.</p>
+                        </a>
+                        <!-- Botón Regalo Vecinal -->
+                        <a href="https://lp.aspergerparaasperger.org/22wd5h94" target="_blank" class="sello-badge">
+                            🎁 Regalo: Sello Neuro-Amigable para zonas Co-Working
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Club Social -->
+                <a href="#" class="card club fade-in-up">
+                    <div class="card-icon">🤝</div>
+                    <div class="card-content">
+                        <h3>Club Social y Educativo</h3>
+                        <p>Más que socialización para la diversidad cognitiva: un espacio para conectar, aprender y
+                            crecer con mentorías directas del fundador para transformar el potencial en realidad.</p>
+                    </div>
+                </a>
+
+                <!-- Card 3: Blog -->
+                <a href="https://www.aspergerparaasperger.org/blog/" target="_blank" class="card blog fade-in-up">
+                    <div class="card-icon">📖</div>
+                    <div class="card-content">
+                        <h3>Blog Gratuito</h3>
+                        <p>Artículos, guías y recursos libres de costo para familias, educadores y personas dentro del
+                            espectro.</p>
+                    </div>
+                </a>
+
+                <!-- Card 4: Main Org -->
+                <a href="https://www.aspergerparaasperger.org/" target="_blank" class="card org fade-in-up">
+                    <div class="card-icon">
+                        <img src="https://www.aspergerparaasperger.org/wp-content/uploads/2020/01/logo-claro.png"
+                            alt="Asperger para Asperger" style="max-width: 90%; max-height: 90%; object-fit: contain;">
+                    </div>
+                    <div class="card-content">
+                        <h3>Asperger para Asperger</h3>
+                        <p>La <strong>Solución #1</strong> basada en la experiencia vivida. Un proyecto pionero dedicado
+                            a redefinir cómo el mundo entiende y potencia la neurodiversidad.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Apps Section -->
+        <section class="apps-section fade-in-up">
+            <h2 class="section-title">Nuestras <span>Aplicaciones</span></h2>
+
+            <div class="app-item">
+                <h3>Signal Radio</h3>
+                <div class="app-buttons">
+                    <a href="https://play.google.com/store/apps/details?id=org.aspergerparaasperger.and6974f562d6ecc"
+                        target="_blank" class="app-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Get it on Google Play">
+                    </a>
+                    <a href="https://apps.apple.com/app/signal-radio/id6758902221" target="_blank" class="app-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                            alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-item">
+                <h3>Escudo Seguro</h3>
+                <div class="app-buttons">
+                    <a href="https://play.google.com/store/apps/details?id=org.aspergerparaasperger.apps.android62ffbf5135c14"
+                        target="_blank" class="app-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Get it on Google Play">
+                    </a>
+                    <a href="https://apps.apple.com/co/app/escudoseguro-co/id6448260837" target="_blank"
+                        class="app-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                            alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact fade-in-up">
+            <h2>¿Te interesa conocer más?</h2>
+            <p>Si quieres saber más sobre nuestras iniciativas o apoyar esta gran comunidad, ¡estamos a un mensaje de
+                distancia!</p>
+            <a href="https://wa.me/573124607728" target="_blank" class="btn">
+                <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.347-.272.273-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                </svg>
+                Contactar a Asperger para Asperger
+            </a>
+
+            <!-- Redes Sociales -->
+            <div class="social-links">
+                <a href="https://instagram.com/aspergerparaasperger" target="_blank" class="social-btn"
+                    aria-label="Instagram">
+                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+                <a href="https://x.com/paraasperger" target="_blank" class="social-btn" aria-label="X (Twitter)">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
+                <a href="https://facebook.com/aspergerparaasperger" target="_blank" class="social-btn"
+                    aria-label="Facebook">
+                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/573124607728" target="_blank" class="sticky-whatsapp" aria-label="Contactar por WhatsApp">
+        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.347-.272.273-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+        </svg>
+    </a>
+
+    <!-- Initialization Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer API for Fade-In-Up Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Solo animar la primera vez
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
